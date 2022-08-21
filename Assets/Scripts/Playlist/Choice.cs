@@ -9,4 +9,9 @@ public class Choice
         _artist = choiceData.artist;
         _title = choiceData.title;
     }
+
+    public string GetChoiceLabel()
+    {
+        return $"{_title} - {_artist}";
+    }
 }

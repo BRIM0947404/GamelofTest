@@ -6,6 +6,12 @@ public class Question
     private int _answerIndex;
     private List<Choice> _choices = new List<Choice>();
     private Song _song;
+    private bool _answeredCorrectly;
+
+    public int AnswerIndex => _answerIndex;
+    public List<Choice> Choices => _choices;
+    public Song Song => _song;
+    public bool AnsweredCorrectly => _answeredCorrectly;
 
     public Question(QuestionData questionData)
     {
@@ -16,5 +22,15 @@ public class Question
         {
             _choices.Add(new Choice(choiceData));
         }
+    }
+
+    public void AnswerSelected(string choiceId)
+    {
+        _answeredCorrectly = choiceId.Equals(_answerIndex.ToString());
+    }
+
+    public void ResetQuestion()
+    {
+        _answeredCorrectly = false;
     }
 }
