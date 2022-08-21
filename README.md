@@ -1,3 +1,3 @@
 # GamelofTest
 
-The game need to be start from the WelcomeScene
+The game need to be start from WelcomeScene
