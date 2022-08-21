@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOverSceneController : ControllerBase
+public class ResultsSceneController : ControllerBase
 {
     [SerializeField] private GameObject _resultPrefab;
     [SerializeField] private Transform _resultsParent;
@@ -14,6 +14,11 @@ public class GameOverSceneController : ControllerBase
 
     public override void Initialize()
     {
+        if (!GameManager.Instance)
+        {
+            Debug.LogError("Please, start from the Welcome Scene, the Playlists are not loaded.");
+        }
+
         int score = 0;
         List<Question> questions = GameManager.Instance.ActivePlaylist.Questions;
         for (int i = 0; i < questions.Count; i++)

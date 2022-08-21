@@ -8,7 +8,6 @@ public class Question
     private Song _song;
     private bool _answeredCorrectly;
 
-    public int AnswerIndex => _answerIndex;
     public List<Choice> Choices => _choices;
     public Song Song => _song;
     public bool AnsweredCorrectly => _answeredCorrectly;

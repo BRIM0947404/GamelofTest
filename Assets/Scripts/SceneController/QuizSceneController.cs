@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class QuestionsSceneController : ControllerBase
+public class QuizSceneController : ControllerBase
 {
     [SerializeField] private GameObject _buttonPrefab;
     [SerializeField] private Transform _buttonsParent;
@@ -114,6 +114,11 @@ public class QuestionsSceneController : ControllerBase
 
     public override void Initialize()
     {
+        if (!GameManager.Instance)
+        {
+            Debug.LogError("Please, start from the Welcome Scene, the Playlists are not loaded.");
+        }
+
         _answerPanelController.OnNextQuestionClicked += OnNextQuestionHandler;
         InitializeNextQuestion();
     }

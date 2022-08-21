@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaylistSelectionController : ControllerBase
+public class WelcomeScreenController : ControllerBase
 {
     [SerializeField] private GameObject _buttonPrefab;
     [SerializeField] private Transform _buttonsParent;

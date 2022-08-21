@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 
 public enum GameScene
 {
-    PlaylistSelection,
-    Questions,
-    GameOver
+    WelcomeScreen,
+    QuizScreen,
+    ResultsScreen
 }
 
 public class GameManager : MonoBehaviour
@@ -52,9 +52,9 @@ public class GameManager : MonoBehaviour
 
         switch (nextScene)
         {
-            case GameScene.PlaylistSelection: nextSceneName = "PlaylistSelectionScene"; break;
-            case GameScene.Questions: nextSceneName = "QuestionsScene"; break;
-            case GameScene.GameOver: nextSceneName = "GameOverScene"; break;
+            case GameScene.WelcomeScreen: nextSceneName = "WelcomeScene"; break;
+            case GameScene.QuizScreen: nextSceneName = "QuizScene"; break;
+            case GameScene.ResultsScreen: nextSceneName = "ResultsScene"; break;
         }
 
         SceneManager.LoadScene(nextSceneName);
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowPlaylists()
     {
-        ChangeScene(GameScene.PlaylistSelection);
+        ChangeScene(GameScene.WelcomeScreen);
     }
 
     public void PlaylistSelected(string id)
@@ -75,13 +75,13 @@ public class GameManager : MonoBehaviour
             {
                 _activePlaylist = playlist;
                 _activePlaylist.ResetPlaylist();
-                ChangeScene(GameScene.Questions);
+                ChangeScene(GameScene.QuizScreen);
             }
         }
     }
 
     public void QuizFinished()
     {
-        ChangeScene(GameScene.GameOver);
+        ChangeScene(GameScene.ResultsScreen);
     }
 }
